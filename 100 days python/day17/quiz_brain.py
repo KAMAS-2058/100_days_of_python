@@ -7,16 +7,16 @@ class QuizBrain:
         self.score = 0
 
     def stillHaveQuestions(self):
-        if len(self.question_list) < len(self.question_list):
+        if self.question_num < len(self.question_list):
             return True
         else: 
             return False
 
     def nextQuestion(self):
-        current_question = self.question_list, self.question_num
+        current_question = self.question_list[self.question_num]
         self.question_num += 1
         user_answer = input(f"Q.{self.question_num}: {current_question.text} (True/False):")
-        self.check_answer(user_answer,current_question.answer)
+        self.checkAnswer(user_answer,current_question.answer)
 
 
     def checkAnswer(self, user_answer, correct_answer):
